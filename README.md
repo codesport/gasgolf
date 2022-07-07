@@ -1,6 +1,6 @@
-# Gas Golf Findings Assigning Values in Constructor vs In-Contract
+# Gas Golf challenge: Assigning Values in Constructor vs In-Contract
 
-@MatheusDaros 
+[@MatheusDaros](https://github.com/MatheusDaros) 
 
 **Conclusion:** Assigning variable values **inside** the contract is cheaper.
 
@@ -66,12 +66,15 @@ Then choose: `Create an advanced sample project that uses TypeScript`
 
 `yarn hardhat test`
 
+
+
 If you get an error the following error: 
 
 ```
 An unexpected error occurred:
 
-Error: @typechain/hardhat tried to access lodash (a peer dependency) but it isn't provided by your application; this makes the require call ambiguous and unsound.
+Error: @typechain/hardhat tried to access lodash (a peer dependency) but it isn't provided 
+by your application; this makes the require call ambiguous and unsound.
 
 Required package: lodash
 ```
