@@ -1,3 +1,56 @@
+# Gas Golf Findings Assigning Values in Constructor vs In-Contract
+
+@MatheusDaros 
+
+**Conclusion:** Assigning variable values **inside** the contract is cheaper.
+
+**Possible Reason:** There may be additional deployment overhead b/c we're placing additional data in the constructor.
+
+## Hardhat Gas Reporter
+![Gas Reporter](https://github.com/codesport/gasgolf/blob/master/images/define-globals-gas-cost.png?raw=true)
+
+## Assign Globals in Constructor
+```
+$ yarn ts-node scripts/define-constructor-deploy.ts
+Using address 0x9E3...e03A
+Wallet balance 9.978686068922924
+Awaiting confirmations
+Token Contract Address: 0x82e5Ec2A9F8744E87d91A2baB2663DAFE5770fF7
+Wallet AFTER before deploying 9.978530472422198
+```
+9.978686068922924-9.97837653492148
+**Gas Cost = 3.09534e-3**
+
+
+
+## Assign Globals in Contract
+```
+$ yarn ts-node scripts/define-contract-deploy.ts
+Using address  0x9E3...e03A
+Wallet balance before deploying 9.978530472422198
+Awaiting confirmations
+Token Contract Address: 0xe01e9D582fd962084ef42cB2C33b6dDA3789588E
+Wallet AFTER before deploying 9.97837653492148
+```
+9.978530472422198-9.97837653492148
+**Gas Cost = 1.539375e-3**
+
+## Resources
+
+https://ethereum.stackexchange.com/a/106800/3506
+
+> `const deploymentData = contract.interface.encodeDeploy([<constructor_arguments>])`
+> Then, you could use the data to get the estimated gas limit as follows:
+> 
+> `const estimatedGas = await ethers.provider.estimateGas({ data: deploymentData });`
+
+https://github.com/ethers-io/ethers.js/discussions/2439#discussioncomment-1857403
+
+https://docs.ethers.io/v5/api/providers/provider/#Provider-getFeeData
+
+
+
+
 # Creating a Spanking New Project Using Yarn
 
 ```
