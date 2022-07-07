@@ -1,4 +1,4 @@
-# Gas Golf challenge: Assigning Values in Constructor vs In-Contract
+# Gas Golf Challenge: Assigning Values in Constructor vs In-Contract
 
 [@MatheusDaros](https://github.com/MatheusDaros) 
 
