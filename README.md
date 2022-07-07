@@ -62,13 +62,13 @@ yarn hardhat
 ```
 Then choose: `Create an advanced sample project that uses TypeScript`
 
-### Make Sure Everything Is Working
+### Make Sure Everything Is Working: `Lodash` and `Process`
 
 `yarn hardhat test`
 
 
 
-If you get an error the following error: 
+1. **If you get an error the following `lodash` error:** 
 
 ```
 An unexpected error occurred:
@@ -79,12 +79,12 @@ by your application; this makes the require call ambiguous and unsound.
 Required package: lodash
 ```
 
-Follow the instructtions and install lodash:
+Follow the instructions and install lodash:
 
 `yarn add lodash`
 
 
-If `process.env` is redlined and says `Cannot find name 'process'. Do you need to install type definitions for node?`
+2. **If `process.env` is redlined and says `Cannot find name 'process'. Do you need to install type definitions for node?`** 
 
 Do: 
 
