@@ -38,20 +38,20 @@ Wallet AFTER before deploying 9.97837653492148
 
 ## Resources
 
-https://ethereum.stackexchange.com/a/106800/3506
+1. https://ethereum.stackexchange.com/a/106800/3506
 
 > `const deploymentData = contract.interface.encodeDeploy([<constructor_arguments>])`
 > Then, you could use the data to get the estimated gas limit as follows:
 > 
 > `const estimatedGas = await ethers.provider.estimateGas({ data: deploymentData });`
 
-https://github.com/ethers-io/ethers.js/discussions/2439#discussioncomment-1857403
+2. @ricmoo comment on getFeeData: https://github.com/ethers-io/ethers.js/discussions/2439#discussioncomment-1857403
 
-https://docs.ethers.io/v5/api/providers/provider/#Provider-getFeeData
+3. ethers.js docs: https://docs.ethers.io/v5/api/providers/provider/#Provider-getFeeData
 
-### Meme from [@vplasencia](https://github.com/vplasencia)
+4.  Meme from [@vplasencia](https://github.com/vplasencia)
 
-![Gas Golf Meme](https://github.com/codesport/gasgolf/blob/master/images/gas-golf.png?raw=true)
+    ![Gas Golf Meme](https://github.com/codesport/gasgolf/blob/master/images/gas-golf.png?raw=true)
 
 
 # How to Create a New Project Using Yarn
