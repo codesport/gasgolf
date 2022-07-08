@@ -38,21 +38,66 @@ Wallet AFTER before deploying 9.97837653492148
 
 ## Resources
 
-1. https://ethereum.stackexchange.com/a/106800/3506
+1. [Estimate gas cost to deploy a smart contract with ethers.js](https://ethereum.stackexchange.com/a/106800/3506)
 
 > `const deploymentData = contract.interface.encodeDeploy([<constructor_arguments>])`
 > Then, you could use the data to get the estimated gas limit as follows:
 > 
 > `const estimatedGas = await ethers.provider.estimateGas({ data: deploymentData });`
 
-2. @ricmoo comment on getFeeData: https://github.com/ethers-io/ethers.js/discussions/2439#discussioncomment-1857403
+> the above code will give you the gas limit, you would need to multiply it with 
+> the current network gas price in order to get the fee in ETH. 
 
-3. ethers.js docs: https://docs.ethers.io/v5/api/providers/provider/#Provider-getFeeData
+2. [Estimate gas fees for smart contract function call with Ethers.js](https://ethereum.stackexchange.com/a/124059/3506)
 
-4.  Meme from [@vplasencia](https://github.com/vplasencia)
+> First, you must get the estimated gas price to use in an empty transaction:
+> ```
+> const gasPrice = await provider.getFeeData();
+> ```
+> 
+> Then, get the estimated gas price for your specific transaction, and multiply it by `gasPrice`:
+> ```
+> const functionGasFees = await contract.estimateGas.myFunction(<argument>);
+> const finalGasPrice = gasPrice * functionGasFees;
+> ```
+> 
+> Of course, `finalGasPrice` will never be exactly equal to the actual gas price you will end up paying, but it is a close enough estimate.
+
+3. @ricmoo comment on using getFeeData() since getGasPrice() has been deprecated: https://github.com/ethers-io/ethers.js/discussions/2439#discussioncomment-1857403
+
+4. `getFeeData()` ethers.js docs: https://docs.ethers.io/v5/api/providers/provider/#Provider-getFeeData
+
+5. Meme from [@vplasencia](https://github.com/vplasencia)
 
     ![Gas Golf Meme](https://github.com/codesport/gasgolf/blob/master/images/gas-golf.png?raw=true)
 
+
+7. [Class 9 Example with `gasUsed()` `effectedFasPrice()` from transaction receipt]
+(https://github.com/Encode-Club-Solidity-Bootcamp-June/09-Gas-Limit/blob/live-lesson/Project/scripts/stagedLoopScript.ts#L29-L44)
+```
+    const BLOCK_GAS_LIMIT = 30000000;
+    //
+    // ..additional code
+    //
+    const sortTx = await ballotContract.sortProposals(STEP_SIZE);
+    console.log("Awaiting confirmations");
+    const sortReceipt = await sortTx.wait();
+    console.log("Operation completed");
+    const percentUsed = sortReceipt.gasUsed
+      .mul(100)
+      .div(BLOCK_GAS_LIMIT)
+      .toNumber();
+    console.log(
+      `${sortReceipt.gasUsed} units of gas used at ${ethers.utils.formatUnits(
+        sortReceipt.effectiveGasPrice,
+        "gwei"
+      )} GWEI effective gas price, total of ${ethers.utils.formatEther(
+        sortReceipt.effectiveGasPrice.mul(sortReceipt.gasUsed)
+      )} ETH spent. This used ${percentUsed} % of the block gas limit`
+    );
+```
+
+6. [Basics of Smart Contract Gas Optimization with Solidity](https://eip2535diamonds.substack.com/p/smart-contract-gas-optimization-with)
 
 # How to Create a New Project Using Yarn
 
