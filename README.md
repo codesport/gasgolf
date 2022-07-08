@@ -72,7 +72,7 @@ Wallet AFTER before deploying 9.97837653492148
     ![Gas Golf Meme](https://github.com/codesport/gasgolf/blob/master/images/gas-golf.png?raw=true)
 
 
-7. [Class 9 Example with `gasUsed()` `effectedFasPrice()` from transaction receipt](https://github.com/Encode-Club-Solidity-Bootcamp-June/09-Gas-Limit/blob/live-lesson/Project/scripts/stagedLoopScript.ts#L29-L44)
+7. [Class 9 Example with `gasUsed()` `effectiveGasPrice()` from transaction receipt](https://github.com/Encode-Club-Solidity-Bootcamp-June/09-Gas-Limit/blob/live-lesson/Project/scripts/stagedLoopScript.ts#L29-L44)
 
 ```
     const BLOCK_GAS_LIMIT = 30000000;
