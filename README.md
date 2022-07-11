@@ -67,19 +67,14 @@ Wallet AFTER before deploying 9.97837653492148
 
 4. `getFeeData()` ethers.js docs: https://docs.ethers.io/v5/api/providers/provider/#Provider-getFeeData
 
-5. Meme from [@vplasencia](https://github.com/vplasencia)
-
-    ![Gas Golf Meme](https://github.com/codesport/gasgolf/blob/master/images/gas-golf.png?raw=true)
-
-
-7. [Class 9 Example with `gasUsed()` `effectiveGasPrice()` from transaction receipt](https://github.com/Encode-Club-Solidity-Bootcamp-June/09-Gas-Limit/blob/live-lesson/Project/scripts/stagedLoopScript.ts#L29-L44)
+5. [Class 9 Example with `gasUsed()` `effectiveGasPrice()` from transaction receipt](https://github.com/Encode-Club-Solidity-Bootcamp-June/09-Gas-Limit/blob/live-lesson/Project/scripts/stagedLoopScript.ts#L29-L44)
 
 ```
     const BLOCK_GAS_LIMIT = 30000000;
     //
     // ..additional code
     //
-    const sortTx = await ballotContract.sortProposals(STEP_SIZE);
+    const sortTx = await ballotContract.sortProposals(STEP_SIZE); // Call any f(x) here
     console.log("Awaiting confirmations");
     const sortReceipt = await sortTx.wait();
     console.log("Operation completed");
@@ -98,6 +93,12 @@ Wallet AFTER before deploying 9.97837653492148
 ```
 
 6. [Basics of Smart Contract Gas Optimization with Solidity](https://eip2535diamonds.substack.com/p/smart-contract-gas-optimization-with)
+
+
+7. Meme from [@vplasencia](https://github.com/vplasencia)
+
+    ![Gas Golf Meme](https://github.com/codesport/gasgolf/blob/master/images/gas-golf.png?raw=true)
+
 
 # How to Create a New Project Using Yarn
 
