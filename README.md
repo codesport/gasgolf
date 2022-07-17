@@ -100,13 +100,12 @@ Wallet AFTER before deploying 9.97837653492148
     ![Gas Golf Meme](https://github.com/codesport/gasgolf/blob/master/images/gas-golf.png?raw=true)
 
 
-# How to Create a New Project Using Yarn
+# How to Create a New Hardhat Project Using Yarn Berry
 
 ```
 yarn set version berry
 yarn --version
-yarn init -y
-yarn add --dev hardhat
+yarn add --dev hardhat@2.9.9 #yarn 2.10.x breaks when using yarn berry
 yarn hardhat
 ```
 Then choose: `Create an advanced sample project that uses TypeScript`
